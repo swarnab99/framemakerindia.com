@@ -1,4 +1,4 @@
-const CounterSection = () => {
+const CounterSection = ({ slice }) => {
 	return (
 		<section
 			className='counter-wrapper'
@@ -7,34 +7,25 @@ const CounterSection = () => {
 			<div className='container'>
 				<div className='counter-inner2'>
 					<div className='row justify-content-between text-center text-lg-start'>
-						<div className='col-sm-6 col-lg-auto'>
-							<div className='counter-media px-0'>
-								<h2 className='sec-title text-theme'>1990</h2>
-								<p className='counter-text'>Pre Weddings</p>
-							</div>
-						</div>
-						<div className='col-sm-6 col-lg-auto'>
-							<div className='counter-media px-0'>
-								<h2 className='sec-title text-theme'>2398</h2>
-								<p className='counter-text'>Weddings</p>
-							</div>
-						</div>
-						<div className='col-sm-6 col-lg-auto'>
-							<div className='counter-media px-0'>
-								<h2 className='sec-title text-theme'>500+</h2>
-								<p className='counter-text'>Baby Photoshoots</p>
-							</div>
-						</div>
-						<div className='col-sm-6 col-lg-auto'>
-							<div className='counter-media px-0'>
-								<h2 className='sec-title text-theme'>9081</h2>
-								<p className='counter-text'>Frame Captured</p>
-							</div>
-						</div>
+						{slice.items.map((item, index) => (
+							<CounterItem key={index} data={item} />
+						))}
 					</div>
 				</div>
 			</div>
 		</section>
+	);
+};
+
+const CounterItem = ({ data }) => {
+	const { title, number } = data;
+	return (
+		<div className='col-sm-6 col-lg-auto'>
+			<div className='counter-media px-0'>
+				<div className='sec-title text-theme'>{number[0]?.text}</div>
+				<p className='counter-text'>{title[0]?.text}</p>
+			</div>
+		</div>
 	);
 };
 

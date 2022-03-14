@@ -1,12 +1,11 @@
 import { useEffect } from 'react';
 import lozad from 'lozad';
-import { Client } from '../utils/prismicHelpers';
-import { queryRepeatableDocuments } from '../utils/queries';
-import { SliceZone } from '../slices';
-import SEO from '../components/seo/SEO';
-import BlogSection from '../components/blog/BlogSection';
+import { Client } from '../../utils/prismicHelpers';
+import { queryRepeatableDocuments } from '../../utils/queries';
+import { SliceZone } from '../../slices';
+import SEO from '../../components/seo/SEO';
 
-const ServicePage = ({ doc }) => {
+const PortfolioDetailsPage = ({ doc }) => {
 	// console.log(blogPosts);
 	// ========== LOZAD INSTANTIATE ==========
 	useEffect(() => {
@@ -19,16 +18,18 @@ const ServicePage = ({ doc }) => {
 	// ========== END ==========
 	return (
 		<>
-			<SEO doc={doc} url={`https://theweddart.com/${doc?.uid}`} />
+			<SEO
+				doc={doc}
+				url={`https://theweddart.com/wedding-portfolio/${doc?.uid}`}
+			/>
 			<SliceZone sliceZone={doc.data.body} />
-			<BlogSection />
 		</>
 	);
 };
 
 export async function getStaticPaths() {
 	const documents = await queryRepeatableDocuments(
-		(doc) => doc.type === 'service_page'
+		(doc) => doc.type === 'portfolio_page'
 	);
 	return {
 		paths: documents.map((doc) => {
@@ -49,7 +50,7 @@ export async function getStaticProps({
 
 	const doc =
 		(await client.getByUID(
-			'service_page',
+			'portfolio_page',
 			params.slug,
 			ref ? { ref } : null
 		)) || {};
@@ -70,4 +71,4 @@ export async function getStaticProps({
 	};
 }
 
-export default ServicePage;
+export default PortfolioDetailsPage;

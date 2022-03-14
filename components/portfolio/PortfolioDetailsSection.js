@@ -1,36 +1,36 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
+import { RichText } from 'prismic-reactjs';
+import { CustomLink } from '../../utils/prismicHelpers';
 
-const PortfolioDetailsSection = () => {
+const PortfolioDetailsSection = ({ slice }) => {
+	// console.log(slice);
+	const { category, bride, groom, details } = slice.primary;
 	return (
 		<section className='portfolio-details-wrapper space'>
 			<div className='container'>
 				<div className='row flex-row-reverse'>
 					<div className='col-lg-4 text-center text-lg-start pb-30 pb-lg-0'>
 						<div className='portfolio-information sticky-top mb-30'>
-							<p className='mt-n2 mb-4'>
-								A wedding is a ceremony and its associated rituals by which two
-								people vow to spend their lives together in marriage. Though it
-								is basically a celebration of love and partnership, a wedding is
-								tailored to a couple in a variety of ways, from their
-								personality to their religious or cultural beliefs.
-							</p>
+							<div className='mt-n2 mb-4'>
+								<RichText render={details} serializeHyperlink={CustomLink} />
+							</div>
 
 							<div className='mb-4'>
 								<span className='fs-md font-title d-block mb-2'>Service:</span>
 								<h3>
 									<Link href='/services'>
-										<a className='text-inherit pe-2'>Pre Wedding</a>
+										<a className='text-inherit pe-2'>{category}</a>
 									</Link>
 								</h3>
 							</div>
 							<div className='mb-4'>
 								<span className='fs-md font-title d-block mb-2'>Bride:</span>
-								<h3>Rose Jane</h3>
+								<h3>{bride[0]?.text}</h3>
 							</div>
 							<div className='mb-4'>
 								<span className='fs-md font-title d-block mb-2'>Groom:</span>
-								<h3>John Deo</h3>
+								<h3>{groom[0]?.text}</h3>
 							</div>
 							<ul className='social-btns list-unstyled pt-3'>
 								<li>
@@ -40,12 +40,7 @@ const PortfolioDetailsSection = () => {
 								</li>
 								<li>
 									<a href='#'>
-										<i className='fab fa-twitter'></i>
-									</a>
-								</li>
-								<li>
-									<a href='#'>
-										<i className='fab fa-behance'></i>
+										<i className='fab fa-instagram'></i>
 									</a>
 								</li>
 								<li>
@@ -53,39 +48,19 @@ const PortfolioDetailsSection = () => {
 										<i className='fab fa-youtube'></i>
 									</a>
 								</li>
+								<li>
+									<a href='#'>
+										<i className='fab fa-twitter'></i>
+									</a>
+								</li>
 							</ul>
 						</div>
 					</div>
 					<div className='col-lg-8'>
 						<div className='portfolio-images-group'>
-							<div className='portfolio-img mb-40 image-scale-hover'>
-								<img
-									src='https://html.vecuro.com/vibeson/demo/assets/img/portfolio/portfolio-d-1-1.jpg'
-									alt='Portfolio Image'
-									className='w-100'
-								/>
-							</div>
-							<div className='portfolio-img mb-40 image-scale-hover'>
-								<img
-									src='https://html.vecuro.com/vibeson/demo/assets/img/portfolio/portfolio-d-1-2.jpg'
-									alt='Portfolio Image'
-									className='w-100'
-								/>
-							</div>
-							<div className='portfolio-img mb-40 image-scale-hover'>
-								<img
-									src='https://html.vecuro.com/vibeson/demo/assets/img/portfolio/portfolio-d-1-3.jpg'
-									alt='Portfolio Image'
-									className='w-100'
-								/>
-							</div>
-							<div className='portfolio-img mb-40 image-scale-hover'>
-								<img
-									src='https://html.vecuro.com/vibeson/demo/assets/img/portfolio/portfolio-d-1-4.jpg'
-									alt='Portfolio Image'
-									className='w-100'
-								/>
-							</div>
+							{slice.items.map((item, index) => (
+								<Mediaitem key={index} data={item} />
+							))}
 						</div>
 					</div>
 				</div>
@@ -97,6 +72,15 @@ const PortfolioDetailsSection = () => {
 				}
 			`}</style>
 		</section>
+	);
+};
+
+const Mediaitem = ({ data }) => {
+	const { image, video_link } = data;
+	return (
+		<div className='portfolio-img mb-40 image-scale-hover'>
+			<img src={image?.url} alt={image?.alt} className='w-100' />
+		</div>
 	);
 };
 

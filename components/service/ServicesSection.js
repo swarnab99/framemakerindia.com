@@ -1,18 +1,23 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
+import { RichText } from 'prismic-reactjs';
+import { CustomLink } from '../../utils/prismicHelpers';
+import { DocLink } from '../../utils/prismicHelpers';
 
-const ServicesSection = () => {
+const ServicesSection = ({ slice }) => {
+	// console.log(slice);
+	const { subheading, heading } = slice.primary;
 	return (
 		<section className='vs-history-wrapper space-top space-md-bottom'>
 			<div className='container history-container'>
 				<div className='title-area text-center'>
-					<span className='sub-title'>Our</span>
-					<h2 className='sec-title'>Photography Services</h2>
+					<span className='sub-title'>{subheading[0]?.text}</span>
+					<h2 className='sec-title'>{heading[0]?.text}</h2>
 				</div>
 				<div className='row gx-xl-0'>
-					<ServiceItem />
-					<ServiceItem />
-					<ServiceItem />
+					{slice?.items?.map((item, index) => (
+						<ServiceItem key={index} data={item} index={index} />
+					))}
 				</div>
 				<div className='text-center mt-10 mb-30'>
 					<Link href='/photography-services'>
@@ -31,35 +36,33 @@ const ServicesSection = () => {
 	);
 };
 
-const ServiceItem = () => {
+const ServiceItem = ({ data, index }) => {
+	const { title, image, description, link } = data;
 	return (
 		<div className='history-step col-md-6 col-xl-12'>
 			<div className='row gx-120 align-items-center'>
 				<div className='col-xl-6'>
-					<div className='history-year'>01</div>
+					<div className='history-year'>0{index + 1}</div>
 				</div>
 				<div className='col-xl-6'>
 					<div className='step-body'>
 						<div className='history-img'>
-							<img
-								src='https://images.prismic.io/framemakerindia/c5a226c9-d56e-4762-a657-d333aa715561_wedding-photography.jpeg?auto=compress,format'
-								alt='History Image'
-								width={370}
-							/>
+							<img src={image.url} alt={image.alt} width={370} />
 						</div>
 						<div className='history-content'>
-							<Link href='/'>
-								<a>
-									<h3 className='history-name h4'>Wedding Photography</h3>
-								</a>
-							</Link>
-							<p className='history-text'>
-								Philosophy of our studioan aesthetically stunning with solutions
-								for our main of customers energy solutions.
-							</p>
-							<Link href='/new'>
-								<a className='vs-btn px-4 py-2'>Get A Quotation</a>
-							</Link>
+							<DocLink link={link}>
+								<h3 className='history-name h4'>{title[0]?.text}</h3>
+							</DocLink>
+							<div className='history-text'>
+								<RichText
+									render={description}
+									serializeHyperlink={CustomLink}
+								/>
+							</div>
+
+							<a href='https://wa.me'>
+								<span className='vs-btn px-4 py-2'>Get A Quotation</span>
+							</a>
 						</div>
 					</div>
 				</div>

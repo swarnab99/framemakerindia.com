@@ -1283,7 +1283,10 @@ textarea.form-control.is-invalid {
 	margin-top: -0.3em;
 	margin-bottom: 20px;
 }
-.sec-title {
+
+.sec-title,
+.sec-title h1,
+.sec-title h2 {
 	font-size: 60px;
 	margin-top: -0.23em;
 	margin-bottom: 30px;
@@ -2517,7 +2520,7 @@ textarea.form-control.is-invalid {
 .main-menu ul.sub-menu:before {
 	content: '';
 	position: absolute;
-	left: 42.5px;
+	left: 33.5px;
 	top: 32px;
 	width: 1px;
 	background-color: #ededed;
@@ -3992,12 +3995,17 @@ blockquote cite:before {
 	}
 	.square-image1 {
 		max-width: 100%;
+		padding: 0;
+		display: none;
 	}
 }
 @media (max-width: 767px) {
 	.square-image2 img,
 	.square-image1 img {
 		width: 100%;
+	}
+	.square-image1 {
+		padding: 0;
 	}
 	.square-image2 {
 		max-width: 100%;
@@ -4018,6 +4026,10 @@ blockquote cite:before {
 }
 .counter-media .sec-title {
 	margin-bottom: 10px;
+	font-family: var(--title-font);
+	font-weight: 500;
+	line-height: 1.2;
+	margin: 0 0 15px 0;
 }
 .counter-media .counter-text {
 	letter-spacing: 0.2em;
@@ -4205,6 +4217,7 @@ blockquote cite:before {
 	transition: all ease 0.4s;
 	opacity: 0;
 	visibility: hidden;
+	cursor: pointer;
 }
 .gallery-box:before {
 	content: '';
@@ -5503,5 +5516,22 @@ blockquote cite:before {
 	.space-md,
 	.space-md-bottom {
 		padding-bottom: calc(var(--section-space-md) - 30px);
+	}
+}
+
+#nprogress .bar {
+	background: #f2ad0c !important;
+	z-index: 9999 !important;
+	margin-top: 77px;
+}
+#nprogress .spinner-icon {
+	border-top-color: #f2ad0c !important;
+	border-left-color: #f2ad0c !important;
+	z-index: 9999 !important;
+}
+
+@media only screen and (max-width: 576px) {
+	#nprogress .bar {
+		margin-top: 61px !important;
 	}
 }

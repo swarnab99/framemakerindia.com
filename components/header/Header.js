@@ -5,7 +5,7 @@ const Header = () => {
 	return (
 		<header className='header-wrapper header-layout1'>
 			<div className='sticky-wrapper will-sticky'>
-				<div className='sticky-active py-2 py-lg-0 active'>
+				<div className='sticky-active active'>
 					<div className='vs-container container'>
 						<div className='position-relative'>
 							<div className='row justify-content-between align-items-center'>
@@ -49,18 +49,14 @@ const Header = () => {
 												<a href='#'>Gallery</a>
 												<ul className='sub-menu'>
 													<li>
-														<li>
-															<Link href='/photos-gallery'>
-																<a>Photos</a>
-															</Link>
-														</li>
+														<Link href='/photos-gallery'>
+															<a>Photos</a>
+														</Link>
 													</li>
 													<li>
-														<li>
-															<Link href='/videos-gallery'>
-																<a>Videos</a>
-															</Link>
-														</li>
+														<Link href='/videos-gallery'>
+															<a>Videos</a>
+														</Link>
 													</li>
 												</ul>
 											</li>

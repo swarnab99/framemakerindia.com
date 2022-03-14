@@ -1,11 +1,15 @@
-const CtaFormSection = () => {
+import { RichText } from 'prismic-reactjs';
+
+const CtaFormSection = ({ slice }) => {
+	// console.log(slice);
+	const { subheading, heading, background_image } = slice.primary;
 	return (
 		<section
 			className='reservation-wrapper space-top space-md-bottom'
 			style={{
-				backgroundImage: `url(https://images.prismic.io/framemakerindia/9528eda5-a5dd-4063-b491-7dc1bc8d06b8_background.jpeg?auto=compress,format)`,
+				backgroundImage: `url(${background_image.url})`,
 			}}
-			data-bg-src='https://images.prismic.io/framemakerindia/9528eda5-a5dd-4063-b491-7dc1bc8d06b8_background.jpeg?auto=compress,format'
+			data-bg-src={background_image.url}
 			data-overlay='black'
 			data-opacity='6'>
 			<div className='container z-index-common'>
@@ -13,11 +17,11 @@ const CtaFormSection = () => {
 					<div className='col-xl-6 col-lg-8 col-md-8'>
 						<div className='title-area'>
 							<span className='sub-title text-white'>
-								Get Amazing Offers for your Wedding
+								{subheading[0]?.text}
 							</span>
-							<h2 className='sec-title text-white'>
-								We Are Waiting For Your Booking!
-							</h2>
+							<div className='sec-title text-white'>
+								<RichText render={heading} />
+							</div>
 						</div>
 					</div>
 				</div>

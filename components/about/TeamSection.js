@@ -1,37 +1,31 @@
 /* eslint-disable @next/next/no-img-element */
 
-const TeamSection = () => {
+const TeamSection = ({ slice }) => {
+	const { subheading, heading } = slice.primary;
 	return (
 		<section className='vs-team-wrapper space-top space-md-bottom'>
 			<div className='container'>
 				<div className='title-area text-center'>
-					<span className='sub-title'>History</span>
-					<h2 className='sec-title'>Team Members</h2>
+					<span className='sub-title'>{subheading[0]?.text}</span>
+					<h2 className='sec-title'>{heading[0]?.text}</h2>
 				</div>
 				<div className='row team-align-style1 justify-content-center'>
-					<TeamItem />
-					<TeamItem />
-					<TeamItem />
-					<TeamItem />
-					<TeamItem />
-					<TeamItem />
-					<TeamItem />
+					{slice.items.map((item, index) => (
+						<TeamItem key={index} data={item} />
+					))}
 				</div>
 			</div>
 		</section>
 	);
 };
 
-const TeamItem = () => {
+const TeamItem = ({ data }) => {
+	const { image, role, name } = data;
 	return (
 		<div className='col-sm-6 col-md-4 col-xl-3'>
 			<div className='vs-member-box'>
 				<div className='member-img'>
-					<img
-						src='https://images.prismic.io/framemakerindia/8edae277-f202-4c38-9a14-871de00b92ee_Rahul+Das+-+%28Owner%29+If+required+%281%29.jpg?auto=compress,format'
-						alt='Member Image'
-						className='w-100'
-					/>
+					<img src={image.url} alt={image.alt} className='w-100' />
 
 					<div className='member-links'>
 						<ul>
@@ -59,8 +53,8 @@ const TeamItem = () => {
 					</div>
 				</div>
 				<div className='member-content'>
-					<span className='degi'>founder</span>
-					<h3 className='member-name'>Rahul Das</h3>
+					<span className='degi'>{role[0]?.text}</span>
+					<h3 className='member-name'>{name[0]?.text}</h3>
 				</div>
 			</div>
 		</div>
