@@ -5,5 +5,4 @@ https://html.vecuro.com/vibeson/demo/index.html
 ## SITEMAP GENERATOR
 
 https://www.sureoak.com/seo-tools/google-xml-sitemap-generator
-
-https://html.vecuro.com/vibeson/demo/assets/
+https://gifrun.com/

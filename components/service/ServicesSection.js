@@ -60,7 +60,8 @@ const ServiceItem = ({ data, index }) => {
 								/>
 							</div>
 
-							<a href='https://wa.me'>
+							<a
+								href={`https://api.whatsapp.com/send?phone=+919830343620&text=Hi, I want a quote for ${title[0]?.text}`}>
 								<span className='vs-btn px-4 py-2'>Get A Quotation</span>
 							</a>
 						</div>
