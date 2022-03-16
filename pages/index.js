@@ -9,7 +9,7 @@ import SEO from '../components/seo/SEO';
 import BlogSection from '../components/blog/BlogSection';
 
 const IndexPage = ({ doc, blogPosts }) => {
-	// console.log(doc);
+	// console.log(blogPosts);
 	// ========== LOZAD INSTANTIATE ==========
 	useEffect(() => {
 		const observer = lozad('.lozad', {

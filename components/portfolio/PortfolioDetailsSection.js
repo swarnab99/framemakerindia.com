@@ -17,7 +17,9 @@ const PortfolioDetailsSection = ({ slice }) => {
 							</div>
 
 							<div className='mb-4'>
-								<span className='fs-md font-title d-block mb-2'>Service:</span>
+								<span className='fs-md font-title d-block mb-2 text-light'>
+									Service:
+								</span>
 								<h3>
 									<Link href='/services'>
 										<a className='text-inherit pe-2'>{category}</a>
@@ -25,26 +27,30 @@ const PortfolioDetailsSection = ({ slice }) => {
 								</h3>
 							</div>
 							<div className='mb-4'>
-								<span className='fs-md font-title d-block mb-2'>Bride:</span>
+								<span className='fs-md font-title d-block mb-2 text-light'>
+									Bride:
+								</span>
 								<h3>{bride[0]?.text}</h3>
 							</div>
 							<div className='mb-4'>
-								<span className='fs-md font-title d-block mb-2'>Groom:</span>
+								<span className='fs-md font-title d-block mb-2 text-light'>
+									Groom:
+								</span>
 								<h3>{groom[0]?.text}</h3>
 							</div>
 							<ul className='social-btns list-unstyled pt-3'>
 								<li>
-									<a href='#'>
+									<a href='https://www.facebook.com/thaframemaker'>
 										<i className='fab fa-facebook-f'></i>
 									</a>
 								</li>
 								<li>
-									<a href='#'>
+									<a href='https://www.instagram.com/the_frame_maker_online/'>
 										<i className='fab fa-instagram'></i>
 									</a>
 								</li>
 								<li>
-									<a href='#'>
+									<a href='https://www.youtube.com/channel/UCfFv2OoyNNcidpTAQDSk5gw'>
 										<i className='fab fa-youtube'></i>
 									</a>
 								</li>

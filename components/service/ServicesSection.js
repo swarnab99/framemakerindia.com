@@ -19,18 +19,20 @@ const ServicesSection = ({ slice }) => {
 						<ServiceItem key={index} data={item} index={index} />
 					))}
 				</div>
-				<div className='text-center mt-10 mb-30'>
-					<Link href='/photography-services'>
-						<a className='d-none d-xl-inline-block history-load icon-btn style-white'>
-							<i className='far fa-plus'></i>
-						</a>
-					</Link>
-					<Link href='/photography-services'>
-						<a className='d-inline-block d-xl-none vs-btn'>
-							<i className='far fa-plus'></i>Load More
-						</a>
-					</Link>
-				</div>
+				{slice?.items?.length < 4 && (
+					<div className='text-center mt-10 mb-30'>
+						<Link href='/photography-services'>
+							<a className='d-none d-xl-inline-block history-load icon-btn style-white'>
+								<i className='far fa-plus'></i>
+							</a>
+						</Link>
+						<Link href='/photography-services'>
+							<a className='d-inline-block d-xl-none vs-btn'>
+								<i className='far fa-plus'></i>Load More
+							</a>
+						</Link>
+					</div>
+				)}
 			</div>
 		</section>
 	);
