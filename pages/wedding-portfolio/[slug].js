@@ -20,7 +20,7 @@ const PortfolioDetailsPage = ({ doc }) => {
 		<>
 			<SEO
 				doc={doc}
-				url={`https://theweddart.com/wedding-portfolio/${doc?.uid}`}
+				url={`https://framemakerindia.com/wedding-portfolio/${doc?.uid}`}
 			/>
 			<SliceZone sliceZone={doc.data.body} />
 		</>

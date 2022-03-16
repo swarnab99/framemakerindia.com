@@ -1,7 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import dayjs from 'dayjs';
+dayjs().format();
+import countapi from 'countapi-js';
 
-const BlogSection = () => {
+const BlogSection = ({ blogPosts }) => {
 	return (
 		<section className='vs-blog-wrapper space-top space-md-bottom'>
 			<div className='container'>
@@ -18,33 +22,49 @@ const BlogSection = () => {
 					className='row vs-carousel'
 					data-slide-show='3'
 					data-sm-slide-show='2'>
-					<BlogItem />
-					<BlogItem />
-					<BlogItem />
+					{blogPosts?.data?.allBlog_posts?.edges?.map((item, index) => (
+						<BlogItem key={index} data={item} />
+					))}
 				</div>
 			</div>
 		</section>
 	);
 };
 
-const BlogItem = () => {
+const BlogItem = ({ data }) => {
+	const { title, featured_image, published_date, _meta } = data.node;
+	/* ===== COUNT & UPDATE NO. OF VIEWS ===== */
+	const [views, setViews] = useState(0);
+	useEffect(() => {
+		countapi.get('framemakerindia.com', _meta?.uid).then((result) => {
+			result?.value && setViews(result.value);
+		});
+	}, [_meta?.uid]);
+	/* ===== END ===== */
 	return (
 		<div className='col-xl-4'>
 			<div className='vs-blog blog-card image-box-hover shadow-sm'>
 				<div className='box-img blog-img'>
 					<img
-						src='https://images.prismic.io/framemakerindia/40812c95-e4df-4c5d-a9ab-17b0e5748888_RISHABH+%26+KARISHMA+wedding+3.jpg?auto=compress,format'
-						alt='Blog Image'
-						className='w-100'
+						data-src={featured_image?.medium?.url}
+						alt={featured_image?.alt}
+						className='w-100 lozad'
 					/>
 				</div>
 				<div className='blog-content'>
 					<div className='blog-meta'>
-						<span>feb 24, 2021</span>
+						<span>
+							<i className='far fa-calendar-alt'></i>
+							{dayjs(published_date).format('DD MMM, YYYY')}
+						</span>
+						<span>
+							<i className='fal fa-eye'></i>
+							{views} Views
+						</span>
 					</div>
 					<h3 className='blog-title'>
-						<Link href='/blog/new'>
-							<a>Gorgeous Mehendi Outfits For Brides</a>
+						<Link href={`/blog/${_meta?.uid}`}>
+							<a>{title[0]?.text}</a>
 						</Link>
 					</h3>
 				</div>

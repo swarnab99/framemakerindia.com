@@ -19,7 +19,7 @@ const PhotographyServices = ({ doc }) => {
 		<>
 			<SEO
 				doc={doc}
-				url='https://theweddart.com/wedding-photography-services'
+				url='https://framemakerindia.com/wedding-photography-services'
 			/>
 			<SliceZone sliceZone={doc.data.body} />
 		</>

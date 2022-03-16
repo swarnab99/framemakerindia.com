@@ -121,7 +121,7 @@ body {
 	font-family: var(--body-font);
 	font-size: 16px;
 	font-weight: 400;
-	color: var(--white-color);
+	color: black;
 	line-height: 26px;
 	overflow-x: hidden;
 	-webkit-font-smoothing: antialiased;
@@ -3332,7 +3332,7 @@ blockquote cite:before {
 	color: rgba(var(--theme-color), 1);
 }
 .blog-single {
-	border: 2px solid #4f5051;
+	border: 1px solid #0b0b0b;
 	background: rgb(0 0 0 / 40%);
 	margin-bottom: 40px;
 	--blog-space-x: 50px;

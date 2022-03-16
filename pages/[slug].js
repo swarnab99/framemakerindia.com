@@ -19,7 +19,7 @@ const ServicePage = ({ doc }) => {
 	// ========== END ==========
 	return (
 		<>
-			<SEO doc={doc} url={`https://theweddart.com/${doc?.uid}`} />
+			<SEO doc={doc} url={`https://framemakerindia.com/${doc?.uid}`} />
 			<SliceZone sliceZone={doc.data.body} />
 			<BlogSection />
 		</>

@@ -21,7 +21,7 @@ const IndexPage = ({ doc, blogPosts }) => {
 	// ========== END ==========
 	return (
 		<>
-			<SEO doc={doc} url='https://theweddart.com' />
+			<SEO doc={doc} url='https://framemakerindia.com' />
 			<SliceZone sliceZone={doc.data.body} />
 			<BlogSection blogPosts={blogPosts} />
 		</>
@@ -34,24 +34,24 @@ export async function getStaticProps({ preview = null, previewData = {} }) {
 	const doc = (await client.getSingle('home_page', ref ? { ref } : null)) || {};
 
 	const pClient = PrismicClient;
-	// const blogPosts = await pClient.query({
-	// 	query: gql`
-	// 		query {
-	// 			allBlog_posts(sortBy: published_date_DESC) {
-	// 				edges {
-	// 					node {
-	// 						title
-	// 						featured_image
-	// 						published_date
-	// 						_meta {
-	// 							uid
-	// 						}
-	// 					}
-	// 				}
-	// 			}
-	// 		}
-	// 	`,
-	// });
+	const blogPosts = await pClient.query({
+		query: gql`
+			query {
+				allBlog_posts(sortBy: published_date_DESC) {
+					edges {
+						node {
+							title
+							featured_image
+							published_date
+							_meta {
+								uid
+							}
+						}
+					}
+				}
+			}
+		`,
+	});
 
 	if (doc.id == undefined) {
 		return {
@@ -63,7 +63,7 @@ export async function getStaticProps({ preview = null, previewData = {} }) {
 	return {
 		props: {
 			doc,
-			// blogPosts,
+			blogPosts,
 			preview,
 		},
 		revalidate: 60,

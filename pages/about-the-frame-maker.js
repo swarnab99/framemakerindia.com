@@ -16,7 +16,7 @@ const AboutPage = ({ doc }) => {
 	// ========== END ==========
 	return (
 		<>
-			<SEO doc={doc} url='https://theweddart.com' />
+			<SEO doc={doc} url='https://framemakerindia.com' />
 			<SliceZone sliceZone={doc.data.body} />
 		</>
 	);

@@ -46,7 +46,9 @@ const Footer = () => {
 														className='icon-btn style-white'>
 														<i className='fab fa-instagram'></i>
 													</a>
-													<a href='#' className='icon-btn style-white'>
+													<a
+														href='https://www.youtube.com/channel/UCfFv2OoyNNcidpTAQDSk5gw'
+														className='icon-btn style-white'>
 														<i className='fab fa-youtube'></i>
 													</a>
 												</div>
