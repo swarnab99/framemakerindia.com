@@ -22,7 +22,7 @@ const Header = () => {
 							/>
 						</a>
 					</div>
-					<div className='vs-mobile-menu'>
+					<div className='vs-mobile-menu' onClick={() => setIsMenuOpen(false)}>
 						<MenuList />
 					</div>
 				</div>

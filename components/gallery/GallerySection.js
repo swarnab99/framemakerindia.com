@@ -79,11 +79,23 @@ const GalleryItem = ({ data, index, openLightboxOnSlide }) => {
 			<div
 				className='gallery-box'
 				onClick={() => openLightboxOnSlide(index + 1)}>
+				{video_link.url && <i className='far fa-play-circle play-icon'></i>}
 				<img src={image.url} alt={image.alt} className='w-100' />
 				<span className='popup-image gal-btn'>
 					<i className='far fa-plus'></i>
 				</span>
 			</div>
+
+			<style jsx>{`
+				.play-icon {
+					position: absolute;
+					z-index: 99;
+					color: #fff;
+					font-size: 2.5rem;
+					left: 5%;
+					top: 5%;
+				}
+			`}</style>
 		</div>
 	);
 };

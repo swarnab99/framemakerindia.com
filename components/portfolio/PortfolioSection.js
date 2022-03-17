@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { DocLink } from '../../utils/prismicHelpers';
 
 const PortfolioSection = ({ slice }) => {
-	const [activeCategory, setActiveCategory] = useState('SHOW ALL');
+	const [activeCategory, setActiveCategory] = useState('Show All');
 	const categoryOptions = ['Show All', 'Pre Wedding', 'Wedding'];
 
 	return (
