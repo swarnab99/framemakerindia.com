@@ -287,13 +287,13 @@ h6 {
 	}
 	.h2,
 	h2 {
-		font-size: 28px;
+		font-size: 36px;
 	}
 }
 @media (max-width: 767px) {
 	.h1,
 	h1 {
-		font-size: 32px;
+		font-size: 36px !important;
 	}
 }
 @media only screen and (min-width: 1300px) {
@@ -5043,7 +5043,7 @@ blockquote cite:before {
 		display: none;
 	}
 	.history-step .history-content {
-		background-color: var(--white-color);
+		background-color: var(--black-color);
 		margin: -60px 20px 0 20px;
 		position: relative;
 		z-index: 2;

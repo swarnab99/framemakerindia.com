@@ -28,7 +28,7 @@ const ServicesSection = ({ slice }) => {
 						</Link>
 						<Link href='/photography-services'>
 							<a className='d-inline-block d-xl-none vs-btn'>
-								<i className='far fa-plus'></i>Load More
+								<i className='far fa-plus'></i>View More
 							</a>
 						</Link>
 					</div>

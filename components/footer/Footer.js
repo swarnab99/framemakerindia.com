@@ -53,7 +53,7 @@ const Footer = () => {
 													</a>
 												</div>
 												<Link href='/book'>
-													<a className='vs-btn style-white color-title'>
+													<a className='vs-btn style-white color-title ms-0 ms-lg-3'>
 														<i className='fal fa-clipboard-list'></i> Get a
 														Quote
 													</a>
