@@ -1,21 +1,33 @@
 /* eslint-disable @next/next/no-img-element */
+import { useEffect, useState } from 'react';
 import { DocLink } from '../../utils/prismicHelpers';
 
 const PortfolioSection = ({ slice }) => {
+	const [activeCategory, setActiveCategory] = useState('SHOW ALL');
+	const categoryOptions = ['Show All', 'Pre Wedding', 'Wedding'];
+
 	return (
 		<section className='portfolio-wrapper portfolio-single-padding space-top'>
 			<div className='container'>
 				<div className='portfolio-filter filter-menu-active text-center mb-40'>
-					<button className='active' data-filter='*'>
-						Show All
-					</button>
-					<button data-filter='.cat-2'>PRE WEDDING</button>
-					<button data-filter='.cat-3'>WEDDING</button>
+					{categoryOptions.map((category, index) => (
+						<button
+							onClick={() => setActiveCategory(category)}
+							key={index}
+							className={`btn ${activeCategory == category ? 'active' : ''}`}
+							data-filter='*'>
+							{category}
+						</button>
+					))}
 				</div>
 				<div className='row gx-45 filter-active'>
-					{slice.items.map((item, index) => (
-						<PortfolioItem key={index} data={item} />
-					))}
+					{slice.items.map(
+						(item, index) =>
+							(activeCategory == 'Show All' ||
+								activeCategory == item.category) && (
+								<PortfolioItem key={index} data={item} />
+							)
+					)}
 				</div>
 			</div>
 		</section>
@@ -24,6 +36,7 @@ const PortfolioSection = ({ slice }) => {
 
 const PortfolioItem = ({ data }) => {
 	const { image, title, category, link } = data;
+	console.log(category);
 	return (
 		<div className='col-md-6 col-xl-4 filter-item cat-1 cat-4'>
 			<div className='mb-45 portfolio-box image-box-hover'>

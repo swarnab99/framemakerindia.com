@@ -4308,6 +4308,7 @@ blockquote cite:before {
 	position: relative;
 	padding: 0 18px 18px 18px;
 	margin: 0 17px 20px 17px;
+	box-shadow: none !important;
 }
 .portfolio-filter button:before {
 	content: '';
