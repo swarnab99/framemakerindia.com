@@ -1,12 +1,14 @@
 import { useEffect } from 'react';
 import lozad from 'lozad';
 import { Client } from '../utils/prismicHelpers';
+import PrismicClient from '../utils/prismicClient';
+import gql from 'graphql-tag';
 import { queryRepeatableDocuments } from '../utils/queries';
 import { SliceZone } from '../slices';
 import SEO from '../components/seo/SEO';
 import BlogSection from '../components/blog/BlogSection';
 
-const ServicePage = ({ doc }) => {
+const ServicePage = ({ doc, blogPosts }) => {
 	// console.log(blogPosts);
 	// ========== LOZAD INSTANTIATE ==========
 	useEffect(() => {
@@ -21,7 +23,7 @@ const ServicePage = ({ doc }) => {
 		<>
 			<SEO doc={doc} url={`https://framemakerindia.com/${doc?.uid}`} />
 			<SliceZone sliceZone={doc.data.body} />
-			<BlogSection />
+			<BlogSection blogPosts={blogPosts} />
 		</>
 	);
 };
@@ -61,9 +63,30 @@ export async function getStaticProps({
 		};
 	}
 
+	const pClient = PrismicClient;
+	const blogPosts = await pClient.query({
+		query: gql`
+			query {
+				allBlog_posts(sortBy: published_date_DESC) {
+					edges {
+						node {
+							title
+							featured_image
+							published_date
+							_meta {
+								uid
+							}
+						}
+					}
+				}
+			}
+		`,
+	});
+
 	return {
 		props: {
 			doc,
+			blogPosts,
 			preview,
 		},
 		revalidate: 60,

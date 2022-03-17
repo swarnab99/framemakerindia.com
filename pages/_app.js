@@ -1,8 +1,6 @@
 import Router from 'next/router';
 import NProgress from 'nprogress'; //nprogress module
 import 'nprogress/nprogress.css'; //styles of nprogress
-// import '../styles/style.css';
-// import '../styles/responsive.css';
 
 import { DefaultSeo } from 'next-seo';
 import DefaultLayout from '../components/layouts/Default';

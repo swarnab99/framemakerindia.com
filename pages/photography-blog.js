@@ -21,7 +21,7 @@ const BlogsPage = ({ doc, blogPosts }) => {
 	// ========== END ==========
 	return (
 		<>
-			<SEO doc={doc} url='https://framemakerindia.com' />
+			<SEO doc={doc} url='https://framemakerindia.com/photography-blog' />
 			<SliceZone sliceZone={doc.data.body} />
 			<BlogSection blogPosts={blogPosts} />
 		</>

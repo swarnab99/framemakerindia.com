@@ -17,10 +17,7 @@ const PhotographyServices = ({ doc }) => {
 	// ========== END ==========
 	return (
 		<>
-			<SEO
-				doc={doc}
-				url='https://framemakerindia.com/wedding-photography-services'
-			/>
+			<SEO doc={doc} url='https://framemakerindia.com/photography-services' />
 			<SliceZone sliceZone={doc.data.body} />
 		</>
 	);

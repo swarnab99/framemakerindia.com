@@ -46,7 +46,7 @@ function SEO({ doc, url }) {
 						alt: featured_image?.alt || title?.[0]?.text,
 					},
 				],
-				site_name: 'rigbiswas',
+				site_name: 'framemakerindia',
 			}}
 			robotsProps={{
 				nosnippet: false,

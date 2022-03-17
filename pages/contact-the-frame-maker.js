@@ -19,7 +19,10 @@ const ContactPage = ({ doc }) => {
 	// ========== END ==========
 	return (
 		<>
-			<SEO doc={doc} url='https://framemakerindia.com' />
+			<SEO
+				doc={doc}
+				url='https://framemakerindia.com/contact-the-frame-maker'
+			/>
 			<SliceZone sliceZone={doc.data.body} />
 			<ContactSection />
 		</>

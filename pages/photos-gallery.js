@@ -17,7 +17,7 @@ const PhotossGallery = ({ doc }) => {
 	// ========== END ==========
 	return (
 		<>
-			<SEO doc={doc} url='https://framemakerindia.com' />
+			<SEO doc={doc} url='https://framemakerindia.com/photos-gallery' />
 			<SliceZone sliceZone={doc.data.body} />
 		</>
 	);
