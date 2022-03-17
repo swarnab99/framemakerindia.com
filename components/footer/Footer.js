@@ -7,13 +7,7 @@ const Footer = () => {
 		<div>
 			<div className='container'>
 				<footer className='footer-wrapper footer-layout1'>
-					<div
-						className='widget-area'
-						// data-bg-src='https://html.vecuro.com/vibeson/demo/assets/img/bg/footer-bg-2-1.jpg'
-						// style={{
-						// 	backgroundImage: `url(https://html.vecuro.com/vibeson/demo/assets/img/bg/footer-bg-2-1.jpg)`,
-						// }}
-					>
+					<div className='widget-area'>
 						<div className='container'>
 							<div className='row gx-60 justify-content-center'>
 								<div className='col-lg-10 col-xl-8 align-self-center'>
