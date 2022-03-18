@@ -29,19 +29,29 @@ const Footer = () => {
 												<div className='mb-20 mb-md-0 d-md-inline-block'>
 													<a
 														href='https://www.facebook.com/thaframemaker'
+														target='_blank'
+														rel='noopener noreferrer'
 														className='icon-btn style-white'>
 														<i className='fab fa-facebook-f'></i>
 													</a>
-													<a href='#' className='icon-btn style-white'>
+													<a
+														href='#'
+														target='_blank'
+														rel='noopener noreferrer'
+														className='icon-btn style-white'>
 														<i className='fab fa-twitter'></i>
 													</a>
 													<a
 														href='https://www.instagram.com/the_frame_maker_online/'
+														target='_blank'
+														rel='noopener noreferrer'
 														className='icon-btn style-white'>
 														<i className='fab fa-instagram'></i>
 													</a>
 													<a
 														href='https://www.youtube.com/channel/UCfFv2OoyNNcidpTAQDSk5gw'
+														target='_blank'
+														rel='noopener noreferrer'
 														className='icon-btn style-white'>
 														<i className='fab fa-youtube'></i>
 													</a>
