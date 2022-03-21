@@ -11,7 +11,7 @@ const WhatsappButton = ({ number, text }) => {
 						target='_blank'
 						rel='noreferrer nofollow'
 						className='btn-whatsapp-pulse d-lg-none'>
-						<i className='fab fa-whatsapp'>
+						<i className='fab'>
 							<FaWhatsapp style={{ verticalAlign: 'top' }} />
 						</i>
 					</a>
@@ -21,7 +21,7 @@ const WhatsappButton = ({ number, text }) => {
 						target='_blank'
 						rel='noreferrer nofollow'
 						className='btn-whatsapp-pulse d-none d-lg-flex'>
-						<i className='fab fa-whatsapp'>
+						<i className='fab'>
 							<FaWhatsapp style={{ verticalAlign: 'top' }} />
 						</i>
 					</a>

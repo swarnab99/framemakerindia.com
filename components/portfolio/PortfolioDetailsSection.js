@@ -21,7 +21,7 @@ const PortfolioDetailsSection = ({ slice }) => {
 									Service:
 								</span>
 								<h3>
-									<Link href='/services'>
+									<Link href='/photography-services'>
 										<a className='text-inherit pe-2'>{category}</a>
 									</Link>
 								</h3>

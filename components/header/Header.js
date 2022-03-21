@@ -14,13 +14,15 @@ const Header = () => {
 						<i className='fal fa-times'></i>
 					</button>
 					<div className='mobile-logo'>
-						<a href='index.html'>
-							<img
-								src='https://images.prismic.io/framemakerindia/aa85a9a3-e66e-4f42-9909-fe54da4688b4_framemaker-logo.png?auto=compress,format'
-								alt='The Frame Maker Logo'
-								width={205}
-							/>
-						</a>
+						<Link href='/'>
+							<a>
+								<img
+									src='https://images.prismic.io/framemakerindia/aa85a9a3-e66e-4f42-9909-fe54da4688b4_framemaker-logo.png?auto=compress,format&w=300'
+									alt='The Frame Maker Logo'
+									width={205}
+								/>
+							</a>
+						</Link>
 					</div>
 					<div className='vs-mobile-menu' onClick={() => setIsMenuOpen(false)}>
 						<MenuList />
@@ -39,7 +41,7 @@ const Header = () => {
 											<Link href='/'>
 												<a>
 													<img
-														src='https://images.prismic.io/framemakerindia/aa85a9a3-e66e-4f42-9909-fe54da4688b4_framemaker-logo.png?auto=compress,format'
+														src='https://images.prismic.io/framemakerindia/aa85a9a3-e66e-4f42-9909-fe54da4688b4_framemaker-logo.png?auto=compress,format&w=280'
 														alt='Logo'
 														width={180}
 													/>
@@ -113,6 +115,11 @@ const MenuList = () => {
 						</Link>
 					</li>
 				</ul>
+			</li>
+			<li>
+				<Link href='/client-reviews'>
+					<a>Reviews</a>
+				</Link>
 			</li>
 			<li>
 				<Link href='/photography-blog'>

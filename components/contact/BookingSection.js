@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState } from 'react';
-import { RichText } from 'prismic-reactjs';
 import Airtable from 'airtable';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const base = new Airtable({
 	apiKey: process.env.NEXT_PUBLIC_AIRTABLE_API_KEY,
@@ -77,17 +78,48 @@ const BookingSection = () => {
 				<div className='row align-items-center'>
 					<div className='col-lg-5 col-xl-6'>
 						<div className='position-relative reservation-image mb-30'>
-							<div className='reservation-img-shape d-none d-xl-block'>
+							<div className='reservation-img-shape d-none d-lg-block'>
 								<img
 									src='https://images.prismic.io/framemakerindia/9b76bca2-6156-48a1-8f01-79e0f966493e_flower-1-2.png'
 									alt='Flower Image'
 								/>
 							</div>
-							<img
-								src='https://images.prismic.io/framemakerindia/51a24e6e-e752-442b-a60f-1dc9e99d6b34_pre-wedding.jpeg?auto=compress,format&w=535'
-								alt='Contact image'
-								className='rounded-circle'
-							/>
+							<Carousel
+								className='p-lg-4'
+								emulateTouch
+								autoPlay
+								interval={3500}
+								infiniteLoop
+								showIndicators
+								showStatus={false}
+								showArrows={false}
+								showThumbs={false}>
+								<img
+									src='https://images.prismic.io/framemakerindia/51a24e6e-e752-442b-a60f-1dc9e99d6b34_pre-wedding.jpeg?auto=compress,format&w=535'
+									alt='Contact image'
+									className='rounded-circle'
+								/>
+								<img
+									src='https://images.prismic.io/framemakerindia/862a724b-87c1-4eed-95e7-f7df5b80cc04_bengali-bride.jpeg?auto=compress,format&rect=0,0,1363,1363&w=535'
+									alt='Contact image'
+									className='rounded-circle'
+								/>
+								<img
+									src='https://images.prismic.io/framemakerindia/78b5fb61-9b7c-44cd-b494-ae1983110023_SUSHMITA+%26+VARUN+wedding+10.jpg?auto=compress,format&rect=686,0,1362,1362&w=535'
+									alt='Contact image'
+									className='rounded-circle'
+								/>
+								<img
+									src='https://images.prismic.io/framemakerindia/6f95f001-3e83-4b1b-b60e-1d8e86d5d0ea_Baby+Shoot+4.jpg?auto=compress,format&rect=102,0,1365,1365&w=535'
+									alt='Contact image'
+									className='rounded-circle'
+								/>
+								<img
+									src='https://images.prismic.io/framemakerindia/03894ed2-5ec2-4283-a3d0-b0f77c8e7d35_RISHABH+%26+KARISHMA+wedding+4.jpg?auto=compress,format&rect=343,0,1365,1365&w=535'
+									alt='Contact image'
+									className='rounded-circle'
+								/>
+							</Carousel>
 						</div>
 					</div>
 					<div className='col-lg-7 col-xl-6'>
@@ -157,9 +189,15 @@ const BookingSection = () => {
 										<option defaultValue value=''>
 											Type of Shoot
 										</option>
-										<option>Pre Wedding</option>
 										<option>Wedding</option>
-										<option>Baby Photography</option>
+										<option>Pre Wedding</option>
+										<option>Post Wedding</option>
+										<option>Engagement</option>
+										<option>Baby Shoot</option>
+										<option>Birthday Shoot</option>
+										<option>Maternity Shoot</option>
+										<option>Anniversary</option>
+										<option>Small Party</option>
 									</select>
 								</div>
 								<div className='col-md-6 form-group'>

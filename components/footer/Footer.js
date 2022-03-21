@@ -15,15 +15,19 @@ const Footer = () => {
 										<div className='vs-widget-about text-center'>
 											<div className='footer-logo mb-15'>
 												<img
-													src='https://images.prismic.io/framemakerindia/aa85a9a3-e66e-4f42-9909-fe54da4688b4_framemaker-logo.png?auto=compress,format'
+													src='https://images.prismic.io/framemakerindia/aa85a9a3-e66e-4f42-9909-fe54da4688b4_framemaker-logo.png?auto=compress,format&w=400'
 													alt='Vibeson'
-													width='250'
+													width='300'
 												/>
 											</div>
 											<p className='font-title fs-20 lh-base'>
 												The Frame Maker is the best wedding photographer in
 												kolkata, who's mission is to capture beautiful memories
 												through wedding photography.
+											</p>
+											<p>
+												© {new Date().getFullYear()} The Frame Maker. All rights
+												reserved.
 											</p>
 											<div className='footer-btns mt-35'>
 												<div className='mb-20 mb-md-0 d-md-inline-block'>
@@ -35,7 +39,7 @@ const Footer = () => {
 														<i className='fab fa-facebook-f'></i>
 													</a>
 													<a
-														href='#'
+														href='https://twitter.com/rahuldaa_das'
 														target='_blank'
 														rel='noopener noreferrer'
 														className='icon-btn style-white'>
@@ -69,23 +73,55 @@ const Footer = () => {
 							</div>
 						</div>
 					</div>
-					{/* <div className='copyright bg-theme text-center'>
-						<p className='fs-md font-title mb-0 text-white'>
-							Copyright <i className='fal fa-copyright'></i> 2021
-							<a className='text-white' href='index.html'>
-								Vibeson
-							</a>
-							. All rights reserved by
-							<a
-								className='text-white'
-								href='https://themeforest.net/user/vecuro'>
-								Vecuro
-							</a>
-							.
-						</p>
-					</div> */}
 				</footer>
 			</div>
+
+			{/* ========== FAVFLY ========= */}
+			<div className='favfly text-center bg-black'>
+				<div className='divider-icon border-0 position-relative'>
+					<i className='fa fa-heart color-rose'></i>
+				</div>
+				<a
+					title='Best digital marketing company in kolkata'
+					href='https://favfly.com?ref=framemakerindia.com'
+					className='container py-3 d-block'>
+					Growing with Favfly
+				</a>
+			</div>
+
+			<style jsx>{`
+				.favfly {
+					letter-spacing: 1px;
+				}
+				.favfly a {
+					color: #f2ad0c;
+					font-weight: 500;
+				}
+				.divider-icon:before {
+					left: 0;
+				}
+				.divider-icon:before,
+				.divider-icon:after {
+					position: absolute;
+					top: 50%;
+					content: '';
+					border-top: 2px solid #222227;
+					width: calc(50% - 30px);
+				}
+				.divider-icon i {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					-webkit-transform: translate(-50%, -50%);
+					-ms-transform: translate(-50%, -50%);
+					transform: translate(-50%, -50%);
+					font-size: 18px;
+					color: #f2ad0c;
+				}
+				.divider-icon:after {
+					right: 0;
+				}
+			`}</style>
 		</div>
 	);
 };

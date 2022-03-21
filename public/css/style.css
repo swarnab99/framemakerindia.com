@@ -287,7 +287,7 @@ h6 {
 	}
 	.h2,
 	h2 {
-		font-size: 36px;
+		font-size: 36px !important;
 	}
 }
 @media (max-width: 767px) {
@@ -4124,6 +4124,7 @@ blockquote cite:before {
 	-webkit-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
+	z-index: 99;
 }
 @media (max-width: 1500px) {
 	.video-shape1 {
@@ -5518,6 +5519,14 @@ blockquote cite:before {
 	.space-md-bottom {
 		padding-bottom: calc(var(--section-space-md) - 30px);
 	}
+}
+
+.review p {
+	display: -webkit-box;
+	-webkit-line-clamp: 6;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 #nprogress .bar {

@@ -19,7 +19,7 @@ export const linkResolver = (doc) => {
 		return `/wedding-portfolio/${doc.uid}`;
 	else if (doc.type === 'weddings_page') return `/weddings-portfolio`;
 	else if (doc.type === 'service_page') return `/${doc.uid}`;
-	else if (doc.type === 'services_page') return '/services';
+	else if (doc.type === 'services_page') return '/photography-services';
 	else if (doc.type === 'blogs_page') return `/photography-blog`;
 	else if (doc.type === 'blog_post') return `/blog/${doc.uid}`;
 
@@ -36,7 +36,7 @@ export const hrefResolver = (doc) => {
 	else if (doc.type === 'portfolio_page') return `/wedding-portfolio/[slug]`;
 	else if (doc.type === 'weddings_page') return `/weddings-portfolio`;
 	else if (doc.type === 'service_page') return `/[slug]`;
-	else if (doc.type === 'services_page') return '/services';
+	else if (doc.type === 'services_page') return '/photography-services';
 	else if (doc.type === 'blogs_page') return `/photography-blog`;
 	else if (doc.type === 'blog_post') return `/blog/[slug]`;
 

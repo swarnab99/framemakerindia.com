@@ -12,6 +12,7 @@ import {
 	PortfolioSection,
 	TeamSection,
 	FeaturesSection,
+	ReviewsSection,
 } from './';
 
 const SliceZone = ({ sliceZone }) => (
@@ -42,6 +43,8 @@ const SliceZone = ({ sliceZone }) => (
 					return <CounterSection slice={slice} key={`slice-${index}`} />;
 				case 'features_section':
 					return <FeaturesSection slice={slice} key={`slice-${index}`} />;
+				case 'reviews_section':
+					return <ReviewsSection slice={slice} key={`slice-${index}`} />;
 				case 'portfolio_details_section':
 					return (
 						<PortfolioDetailsSection slice={slice} key={`slice-${index}`} />

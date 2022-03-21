@@ -11,5 +11,6 @@ export { default as PortfolioSection } from '../components/portfolio/PortfolioSe
 export { default as PortfolioDetailsSection } from '../components/portfolio/PortfolioDetailsSection';
 export { default as SecondaryHeroSection } from '../components/hero/SecondaryHeroSection';
 export { default as ContactInfoSection } from '../components/contact/ContactInfoSection';
+export { default as ReviewsSection } from '../components/review/ReviewsSection';
 
 export { default as SliceZone } from './SliceZone';
