@@ -198,6 +198,7 @@ const BookingSection = () => {
 										<option>Maternity Shoot</option>
 										<option>Anniversary</option>
 										<option>Small Party</option>
+										<option>Events</option>
 									</select>
 								</div>
 								<div className='col-md-6 form-group'>
