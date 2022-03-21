@@ -40,22 +40,34 @@ const PortfolioDetailsSection = ({ slice }) => {
 							</div>
 							<ul className='social-btns list-unstyled pt-3'>
 								<li>
-									<a href='https://www.facebook.com/thaframemaker'>
+									<a
+										href='https://www.facebook.com/thaframemaker'
+										target='_blank'
+										rel='noopener noreferrer'>
 										<i className='fab fa-facebook-f'></i>
 									</a>
 								</li>
 								<li>
-									<a href='https://www.instagram.com/the_frame_maker_online/'>
+									<a
+										href='https://www.instagram.com/the_frame_maker_online/'
+										target='_blank'
+										rel='noopener noreferrer'>
 										<i className='fab fa-instagram'></i>
 									</a>
 								</li>
 								<li>
-									<a href='https://www.youtube.com/channel/UCfFv2OoyNNcidpTAQDSk5gw'>
+									<a
+										href='https://www.youtube.com/channel/UCfFv2OoyNNcidpTAQDSk5gw'
+										target='_blank'
+										rel='noopener noreferrer'>
 										<i className='fab fa-youtube'></i>
 									</a>
 								</li>
 								<li>
-									<a href='#'>
+									<a
+										href='https://twitter.com/rahuldaa_das'
+										target='_blank'
+										rel='noopener noreferrer'>
 										<i className='fab fa-twitter'></i>
 									</a>
 								</li>
