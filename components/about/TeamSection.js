@@ -30,22 +30,22 @@ const TeamItem = ({ data }) => {
 					<div className='member-links'>
 						<ul>
 							<li>
-								<a href='#'>
+								<a href='https://www.facebook.com/thaframemaker'>
 									<i className='fab fa-facebook-f'></i>
 								</a>
 							</li>
 							<li>
-								<a href='#'>
+								<a href='https://twitter.com/rahuldaa_das'>
 									<i className='fab fa-twitter'></i>
 								</a>
 							</li>
 							<li>
-								<a href='#'>
+								<a href='https://www.instagram.com/the_frame_maker_online/'>
 									<i className='fab fa-instagram'></i>
 								</a>
 							</li>
 							<li>
-								<a href='#'>
+								<a href='https://www.youtube.com/channel/UCfFv2OoyNNcidpTAQDSk5gw'>
 									<i className='fab fa-youtube'></i>
 								</a>
 							</li>
