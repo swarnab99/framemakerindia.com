@@ -140,7 +140,7 @@ const Mediaitem = ({ data, index, openLightboxOnSlide }) => {
 		<div
 			className='portfolio-img mb-40 image-scale-hover image-zoom position-relative'
 			onClick={() => openLightboxOnSlide(index + 1)}>
-			{!video_link.url && <i className='far fa-play-circle play-icon'></i>}
+			{video_link.url && <i className='far fa-play-circle play-icon'></i>}
 			<img data-src={image?.url} alt={image?.alt} className='w-100 lozad' />
 
 			<style jsx>{`
