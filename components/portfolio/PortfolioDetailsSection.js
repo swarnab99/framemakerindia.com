@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+import { useEffect, useState } from 'react';
+import FsLightbox from 'fslightbox-react';
 import Link from 'next/link';
 import { RichText } from 'prismic-reactjs';
 import { CustomLink } from '../../utils/prismicHelpers';
@@ -6,6 +8,34 @@ import { CustomLink } from '../../utils/prismicHelpers';
 const PortfolioDetailsSection = ({ slice }) => {
 	// console.log(slice);
 	const { category, bride, groom, details } = slice.primary;
+
+	const [sources, setSources] = useState([]);
+	// ===== SLIDE STATE =====
+	const [lightboxController, setLightboxController] = useState({
+		toggler: false,
+		slide: 1,
+	});
+	// ===== HANDLE SLIDE NUMBER =====
+	const openLightboxOnSlide = (number) => {
+		setLightboxController({
+			toggler: !lightboxController.toggler,
+			slide: number,
+		});
+	};
+	// ===== GET STRUCTURED SOURCES =====
+	useEffect(() => {
+		let tempSources = [];
+		slice.items.map((item) => {
+			item.video_link.link_type == 'Web'
+				? tempSources.push(item?.video_link?.url)
+				: tempSources.push(item?.image?.large?.url);
+		});
+		setSources(tempSources);
+		return () => {
+			setSources([]);
+		};
+	}, [slice]);
+
 	return (
 		<section className='portfolio-details-wrapper space'>
 			<div className='container'>
@@ -77,7 +107,12 @@ const PortfolioDetailsSection = ({ slice }) => {
 					<div className='col-lg-8'>
 						<div className='portfolio-images-group'>
 							{slice.items.map((item, index) => (
-								<Mediaitem key={index} data={item} />
+								<Mediaitem
+									key={index}
+									data={item}
+									index={index}
+									openLightboxOnSlide={openLightboxOnSlide}
+								/>
 							))}
 						</div>
 					</div>
@@ -89,15 +124,35 @@ const PortfolioDetailsSection = ({ slice }) => {
 					padding-top: 100px;
 				}
 			`}</style>
+
+			<FsLightbox
+				toggler={lightboxController.toggler}
+				sources={sources}
+				slide={lightboxController.slide}
+			/>
 		</section>
 	);
 };
 
-const Mediaitem = ({ data }) => {
+const Mediaitem = ({ data, index, openLightboxOnSlide }) => {
 	const { image, video_link } = data;
 	return (
-		<div className='portfolio-img mb-40 image-scale-hover'>
+		<div
+			className='portfolio-img mb-40 image-scale-hover image-zoom'
+			onClick={() => openLightboxOnSlide(index + 1)}>
+			{video_link.url && <i className='far fa-play-circle play-icon'></i>}
 			<img src={image?.url} alt={image?.alt} className='w-100' />
+
+			<style jsx>{`
+				.play-icon {
+					position: absolute;
+					z-index: 99;
+					color: #fff;
+					font-size: 2.5rem;
+					left: 5%;
+					top: 5%;
+				}
+			`}</style>
 		</div>
 	);
 };

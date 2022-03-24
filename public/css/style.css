@@ -1324,6 +1324,9 @@ textarea.form-control.is-invalid {
 .image-scale-hover {
 	overflow: hidden;
 }
+.image-zoom {
+	cursor: zoom-in;
+}
 .image-scale-hover img {
 	-webkit-transition: all ease 0.4s;
 	transition: all ease 0.4s;
