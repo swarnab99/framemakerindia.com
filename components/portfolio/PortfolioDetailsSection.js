@@ -138,10 +138,10 @@ const Mediaitem = ({ data, index, openLightboxOnSlide }) => {
 	const { image, video_link } = data;
 	return (
 		<div
-			className='portfolio-img mb-40 image-scale-hover image-zoom'
+			className='portfolio-img mb-40 image-scale-hover image-zoom position-relative'
 			onClick={() => openLightboxOnSlide(index + 1)}>
-			{video_link.url && <i className='far fa-play-circle play-icon'></i>}
-			<img src={image?.url} alt={image?.alt} className='w-100' />
+			{!video_link.url && <i className='far fa-play-circle play-icon'></i>}
+			<img data-src={image?.url} alt={image?.alt} className='w-100 lozad' />
 
 			<style jsx>{`
 				.play-icon {
@@ -150,7 +150,7 @@ const Mediaitem = ({ data, index, openLightboxOnSlide }) => {
 					color: #fff;
 					font-size: 2.5rem;
 					left: 5%;
-					top: 5%;
+					top: 8%;
 				}
 			`}</style>
 		</div>
