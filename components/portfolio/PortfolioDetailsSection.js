@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import FsLightbox from 'fslightbox-react';
 import Link from 'next/link';
 import { RichText } from 'prismic-reactjs';
-import { CustomLink } from '../../utils/prismicHelpers';
+import { linkResolver } from '../../prismic-configuration';
 
 const PortfolioDetailsSection = ({ slice }) => {
 	// console.log(slice);
@@ -43,7 +43,7 @@ const PortfolioDetailsSection = ({ slice }) => {
 					<div className='col-lg-4 text-center text-lg-start pb-30 pb-lg-0'>
 						<div className='portfolio-information sticky-top mb-30'>
 							<div className='mt-n2 mb-4'>
-								<RichText render={details} serializeHyperlink={CustomLink} />
+								<RichText render={details} linkResolver={linkResolver} />
 							</div>
 
 							<div className='mb-4'>

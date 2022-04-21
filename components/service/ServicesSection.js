@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 import { RichText } from 'prismic-reactjs';
-import { CustomLink } from '../../utils/prismicHelpers';
+import { linkResolver } from '../../prismic-configuration';
 import { DocLink } from '../../utils/prismicHelpers';
 
 const ServicesSection = ({ slice }) => {
@@ -56,10 +56,7 @@ const ServiceItem = ({ data, index }) => {
 								<h3 className='history-name h4'>{title[0]?.text}</h3>
 							</DocLink>
 							<div className='history-text'>
-								<RichText
-									render={description}
-									serializeHyperlink={CustomLink}
-								/>
+								<RichText render={description} linkResolver={linkResolver} />
 							</div>
 
 							<a

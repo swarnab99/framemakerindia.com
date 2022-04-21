@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { RichText } from 'prismic-reactjs';
-import { CustomLink } from '../../utils/prismicHelpers';
+import { linkResolver } from '../../prismic-configuration';
 
 const AboutSection = ({ slice }) => {
 	const { subheading, heading, description, image1, image2 } = slice.primary;
@@ -23,10 +23,7 @@ const AboutSection = ({ slice }) => {
 							<span className='sub-title'>{subheading[0]?.text}</span>
 							<h2 className='sec-title'>{heading[0]?.text}</h2>
 							<div className='mb-30 pb-3'>
-								<RichText
-									render={description}
-									serializeHyperlink={CustomLink}
-								/>
+								<RichText render={description} linkResolver={linkResolver} />
 							</div>
 
 							{slice?.items?.map((item, index) => (
@@ -49,7 +46,7 @@ const FeatureItem = ({ data }) => {
 			</div>
 			<div className='media-body'>
 				<h3 className='h4 mt-n1'>{title[0]?.text}</h3>
-				<RichText render={details} serializeHyperlink={CustomLink} />
+				<RichText render={details} linkResolver={linkResolver} />
 			</div>
 		</div>
 	);

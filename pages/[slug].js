@@ -67,7 +67,7 @@ export async function getStaticProps({
 	const blogPosts = await pClient.query({
 		query: gql`
 			query {
-				allBlog_posts(sortBy: published_date_DESC) {
+				allBlog_posts(sortBy: published_date_DESC, first: 3) {
 					edges {
 						node {
 							title

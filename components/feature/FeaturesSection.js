@@ -1,5 +1,5 @@
 import { RichText } from 'prismic-reactjs';
-import { CustomLink } from '../../utils/prismicHelpers';
+import { linkResolver } from '../../prismic-configuration';
 
 const FeaturesSection = ({ slice }) => {
 	// console.log(slice);
@@ -31,7 +31,7 @@ const FeatureItem = ({ data }) => {
 				</div>
 				<h3 className='service-name'>{title[0]?.text}</h3>
 				<div className='fs-xs'>
-					<RichText render={details} serializeHyperlink={CustomLink} />
+					<RichText render={details} linkResolver={linkResolver} />
 				</div>
 			</div>
 		</div>

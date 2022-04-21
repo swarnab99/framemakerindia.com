@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState } from 'react';
 import { RichText } from 'prismic-reactjs';
-import { CustomLink } from '../../utils/prismicHelpers';
+import { linkResolver } from '../../prismic-configuration';
 
 const ReviewsSection = ({ slice }) => {
 	return (
@@ -32,7 +32,7 @@ const ReviewItem = ({ data }) => {
 				<div
 					className={`text-white-light px-3 ${isOpen ? '' : 'review'}`}
 					onClick={() => setIsOpen(!isOpen)}>
-					<RichText render={review} serializeHyperlink={CustomLink} />
+					<RichText render={review} linkResolver={linkResolver} />
 				</div>
 			</div>
 		</div>

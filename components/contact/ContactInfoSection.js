@@ -1,5 +1,5 @@
 import { RichText } from 'prismic-reactjs';
-import { CustomLink } from '../../utils/prismicHelpers';
+import { linkResolver } from '../../prismic-configuration';
 import { DocLink } from '../../utils/prismicHelpers';
 
 const ContactInfoSection = ({ slice }) => {
@@ -27,7 +27,7 @@ const ContactItem = ({ data }) => {
 				</div>
 				<h3 className='info-title text-white'>{title[0]?.text}</h3>
 				<div className='info-text text-white-light'>
-					<RichText render={details} serializeHyperlink={CustomLink} />
+					<RichText render={details} linkResolver={linkResolver} />
 				</div>
 				<DocLink link={button_link}>
 					<div className='vs-btn py-2'>{button_text[0]?.text}</div>
