@@ -4,7 +4,7 @@ import { DocLink } from '../../utils/prismicHelpers';
 
 const PortfolioSection = ({ slice }) => {
 	const [activeCategory, setActiveCategory] = useState('Show All');
-	const categoryOptions = ['Show All', 'Pre Wedding', 'Wedding'];
+	const categoryOptions = ['Show All', 'Pre Wedding', 'Wedding', 'Engagement'];
 
 	return (
 		<section className='portfolio-wrapper portfolio-single-padding space-top'>
@@ -36,7 +36,6 @@ const PortfolioSection = ({ slice }) => {
 
 const PortfolioItem = ({ data }) => {
 	const { image, title, category, link } = data;
-	console.log(category);
 	return (
 		<div className='col-md-6 col-xl-4 filter-item cat-1 cat-4'>
 			<div className='mb-45 portfolio-box image-box-hover'>
